@@ -1,6 +1,6 @@
 {
   "name": "dodo-cashierapp",
-  "version": "1.0.3",
+  "version": "1.0.8",
   "description": "An Electron-based cashier app.",
   "main": "main.js",
   "scripts": {
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/lamka-tatya/cashierapp#readme",
   "devDependencies": {
-    "electron": "^4.2.0",
+    "electron": "^5.0.1",
     "electron-builder": "^20.40.2",
     "electron-rebuild": "^1.8.4"
   },

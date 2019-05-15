@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 
 <html>
-  <head> </head>
-  <body>
-    <div>
-      <h1>Привет!</h1>
-      <h1>Пока!</h1>
-      <h1>Пока!</h1>
-      <h1>Пока!</h1>
-      <h1>Пока!</h1>
-      <h1>Пока!</h1>
-      <h1>Пока!</h1>
-    </div>
 
-    <script>
-      require("winax");
+<head> </head>
 
-      var myMsgBox = new ActiveXObject("wscript.shell");
-      myMsgBox.Popup("Hey, this works");
-      // console.log('sdfdsf');
-    </script>
-  </body>
+<body>
+  <div id="update-available" style="display:none;z-index: 100;position: absolute">
+    <div id ="release-name"></div>
+    <div id ="release-notes"></div>
+    <button onclick="hideUpdDiv()">Позже</button>
+    <button onclick="acceptUpd()">Обновить</button>
+  </div>
+
+  <iframe src="https://ru-stage-auth.dodopizza.io/"
+    style="position: absolute;height: 100%;border: none;width: 100%;margin: 0;padding: 0;left: 0;top: 0;"> </iframe>
+  <script>
+    require('electron').ipcRenderer.on('update-downloaded', (event, releaseNotes, releaseName) => {
+      document.getElementById('release-name').innerText = releaseName;
+      document.getElementById('release-notes').innerText = releaseNotes;
+      document.getElementById('update-available').style.display = "block";
+    });
+
+    const acceptUpd = function () {
+      require('electron').remote.getCurrentWindow().updateCashier();
+      document.getElementById('update-available').style.display = "none";
+    };
+
+    const hideUpdDiv = function () {
+      document.getElementById('update-available').style.display = "none";
+    };
+
+  </script>
+</body>
+
 </html>
