@@ -1,0 +1,40 @@
+{
+  "name": "dodo-cashierapp",
+  "version": "1.0.3",
+  "description": "An Electron-based cashier app.",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-rebuild --arch ia32 & electron-builder install-app-deps --arch ia32",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "build",
+    "publish": "build -p always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamka-tatya/cashierapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lamka-tatya/cashierapp/issues"
+  },
+  "build": {
+    "appId": "com.github.lamka-tatya.cashierapp",
+    "win": {
+      "target": "NSIS",
+      "icon": "build/favicon.ico"
+    }
+  },
+  "homepage": "https://github.com/lamka-tatya/cashierapp#readme",
+  "devDependencies": {
+    "electron": "^4.2.0",
+    "electron-builder": "^20.40.2",
+    "electron-rebuild": "^1.8.4"
+  },
+  "dependencies": {
+    "electron-log": "^3.0.5",
+    "electron-updater": "^4.0.6",
+    "winax": "https://github.com/dodopizza/node-activex.git"
+  }
+}
